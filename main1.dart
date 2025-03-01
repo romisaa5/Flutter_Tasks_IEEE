@@ -29,6 +29,9 @@ class Calcaulator {
   }
 
   void division(int num1, int num2) {
+    if (num2 == 0) {
+      print('invalid operation ,you can not divide by zero');
+    }
     int Result = num1 ~/ num2;
     print('Result of division = $Result');
   }
