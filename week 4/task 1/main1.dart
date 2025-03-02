@@ -6,33 +6,26 @@ void main() {
   print('Enter Num 2 :');
   int num2 = int.parse(stdin.readLineSync() ?? '0');
   Calcaulator calc = Calcaulator();
-  calc.sum(num1, num2);
-  calc.subtraction(num1, num2);
-  calc.multiplication(num1, num2);
-  calc.division(num1, num2);
+  print('Result of Sum = ${calc.sum(num1, num2)}');
+  print('Result of subtraction = ${calc.subtraction(num1, num2)}');
+  print('Result of multiplication = ${calc.multiplication(num1, num2)}');
+  print('Result of division = ${calc.division(num1, num2)}');
 }
 
 class Calcaulator {
-  void sum(int num1, int num2) {
-    int Result = num1 + num2;
-    print('Result of Sum = $Result');
+  int sum(int num1, int num2) {
+    return num1 + num2;
   }
 
-  void subtraction(int num1, int num2) {
-    int Result = num1 - num2;
-    print('Result of subtraction = $Result');
+  int subtraction(int num1, int num2) {
+    return num1 - num2;
   }
 
-  void multiplication(int num1, int num2) {
-    int Result = num1 * num2;
-    print('Result of multiplication = $Result');
+  int multiplication(int num1, int num2) {
+    return num1 * num2;
   }
 
-  void division(int num1, int num2) {
-    if (num2 == 0) {
-      print('invalid operation ,you can not divide by zero');
-    }
-    int Result = num1 ~/ num2;
-    print('Result of division = $Result');
+  double division(int num1, int num2) {
+    return num1 / num2;
   }
 }

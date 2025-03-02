@@ -13,11 +13,11 @@ void main() {
   print(rectangle.area());
 }
 
-class Shape {
+abstract class Shape {
   double width;
   double height;
   Shape(this.width, this.height);
-  double area() => 0;
+  double area();
 }
 
 class Triangle extends Shape {

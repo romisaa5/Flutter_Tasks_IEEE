@@ -12,8 +12,14 @@ class Client {
     projectsForClient.add(project);
   }
 
+
   void getProjects() {
-    print('Projects for $name: ${projectsForClient.map((p) => p.projectName).toList()}');
+  print('Projects for $name:');
+  for (var project in projectsForClient) {
+    print('- ${project.projectName}');
+  }
+
+
   }
 
   void updateContactInfo(String newEmail, String newPhone) {
