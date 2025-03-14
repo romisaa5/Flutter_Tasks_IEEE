@@ -1,16 +1,14 @@
-# task6
+# Week 6 Task - Getting Started with Flutter Widgets  
 
-A new Flutter project.
+This repository contains the task for **Week 6**, where we began our journey with **Flutter**.  
 
-## Getting Started
+## 📌 Week 6 Content  
+During this week, we explored the fundamental **Flutter widgets**, which are essential building blocks for creating UI in Flutter applications.  
 
-This project is a starting point for a Flutter application.
+## 🚀 Key Topics Covered:  
+- Understanding **widgets** in Flutter.  
+- Exploring commonly used **widgets** like `Container`, `Row`, `Column`, `Text`, and more.  
+- Learning how to **structure a Flutter app** using widgets.  
 
-A few resources to get you started if this is your first Flutter project:
+This task helped us get familiar with Flutter's widget .  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
