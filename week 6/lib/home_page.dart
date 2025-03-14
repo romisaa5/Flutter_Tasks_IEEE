@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task6/custom_row_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -31,99 +32,27 @@ class HomePage extends StatelessWidget {
             '  Ingredients',
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-          customrow(),
+          CustomRow(
+            imageUrls: [
+              'assets/images/pasta1.jpg',
+              'assets/images/chicken.jpg',
+              'assets/images/butter.jpg',
+              'assets/images/grediant.jpg'
+            ],
+          ),
           SizedBox(
             height: 10,
           ),
-          customrow()
+          CustomRow(
+            imageUrls: [
+              'assets/images/pasta1.jpg',
+              'assets/images/chicken.jpg',
+              'assets/images/butter.jpg',
+              'assets/images/grediant.jpg'
+            ],
+          ),
         ],
       ),
-    );
-  }
-}
-
-class customrow extends StatelessWidget {
-  const customrow({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Container(
-            height: 70,
-            width: 70,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(color: Colors.black),
-              borderRadius: BorderRadius.all(
-                Radius.circular(12),
-              ),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: Image.asset(
-                'assets/images/pasta1.jpg',
-                fit: BoxFit.fill,
-              ),
-            )),
-        Container(
-          height: 70,
-          width: 70,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.black),
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
-            ),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              'assets/images/chicken.jpg',
-              fit: BoxFit.fill,
-            ),
-          ),
-        ),
-        Container(
-          height: 70,
-          width: 70,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.black),
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
-            ),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              'assets/images/butter.jpg',
-              fit: BoxFit.fill,
-            ),
-          ),
-        ),
-        Container(
-          height: 70,
-          width: 70,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(color: Colors.black),
-            borderRadius: BorderRadius.all(
-              Radius.circular(12),
-            ),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              'assets/images/grediant.jpg',
-              fit: BoxFit.fill,
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
