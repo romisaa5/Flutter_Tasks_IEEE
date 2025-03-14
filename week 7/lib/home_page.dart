@@ -1,49 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:task7/custom_appbar.dart';
+import 'package:task7/custom_button.dart';
+import 'package:task7/custom_list_colors.dart';
+import 'package:task7/custom_number_of_items.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-int count = 0;
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          spacing: 8,
+          spacing: 6,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.arrow_circle_left_outlined,
-                      size: 32,
-                    )),
-                Text(
-                  'Details',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.favorite,
-                      color: Colors.red,
-                      size: 32,
-                    )),
-              ],
-            ),
+            CustomAppbar(),
             Center(
                 child: Image.asset(
               'assets/images/chair.png',
@@ -81,98 +54,28 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  spacing: 3,
-                  children: [
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          color: Colors.orange,
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          color: Colors.green,
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: 55,
-                  width: 160,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.black),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            setState(() {
-                              count++;
-                            });
-                          },
-                          icon: Icon(Icons.add)),
-                      Text(
-                        '$count',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                      IconButton(
-                          onPressed: () {
-                            setState(() {
-                              count--;
-                            });
-                          },
-                          icon: Icon(Icons.remove)),
-                    ],
-                  ),
-                )
-              ],
+                CustomListColors(),
+               CustomNumberOfItems()],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween, 
               children: [
-              
               Container(
-                  height: 55,
-                  width: 55,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-              
-                  ),
-                  child: IconButton(onPressed: (){}, icon:Icon( Icons.favorite_border_outlined),color: Colors.red,iconSize: 36,)
-                  ,
+                height: 55,
+                width: 55,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.favorite_border_outlined),
+                  color: Colors.red,
+                  iconSize: 36,
+                ),
               ),
-               Container(
-                  height: 55,
-                  width: 270,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(12),
-              
-                  ),
-             child: Center(child: Text('Add to Cart',style: TextStyle(color:Colors.white),)))
-           ] )
+              CustomButton()
+            ])
           ],
         ),
       ),
