@@ -2,7 +2,7 @@
 
 # 🚀 IEEE Flutter Circle Tasks
 
-Welcome to the **IEEE Flutter Circle Tasks** repository! This repository contains all the tasks we will be solving throughout the season. New tasks will be added every week, covering different aspects of Flutter development. 
+Welcome to the **IEEE_Tasks** repository! This repository contains all the tasks we will be solving throughout the season. New tasks will be added every week, covering different aspects of Flutter development. 
 
 ## 🏆 Weekly Tasks Overview
 - **Weeks 1-7**: Beginner Level : [ Dart, OOP, and essential Flutter widgets ].
