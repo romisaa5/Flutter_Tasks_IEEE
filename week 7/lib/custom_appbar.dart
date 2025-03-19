@@ -14,24 +14,16 @@ class _CustomAppbarState extends State<CustomAppbar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: CustomFavoriteIcon(),
+      leading:CircleAvatar(
+        radius: 5,
+        child: Icon(Icons.arrow_back),
+      ) ,
       title: Text(
         'Details',
         style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
       ),
       actions: [
-        IconButton(
-          onPressed: () {
-            setState(() {
-              isFavorite = !isFavorite;
-            });
-          },
-          icon: Icon(
-            Icons.favorite,
-            color: isFavorite ? Colors.red : Colors.grey,
-            size: 32,
-          ),
-        ),
+       CustomFavoriteIcon(),
       ],
     );
   }
