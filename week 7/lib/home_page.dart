@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task7/custom_appbar.dart';
 import 'package:task7/custom_button.dart';
+import 'package:task7/custom_favorite_icon.dart';
 import 'package:task7/custom_list_colors.dart';
 import 'package:task7/custom_number_of_items.dart';
 
@@ -67,12 +68,7 @@ class HomePage extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.favorite_border_outlined),
-                  color: Colors.red,
-                  iconSize: 36,
-                ),
+                child:  CustomFavoriteIcon()
               ),
               CustomButton()
             ])
