@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task7/custom_favorite_icon.dart';
+import 'package:task7/widgets/custom_favorite_icon.dart';
 
 class CustomAppbar extends StatefulWidget {
   const CustomAppbar({super.key});
