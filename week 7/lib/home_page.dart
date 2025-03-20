@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:task7/custom_appbar.dart';
-import 'package:task7/custom_button.dart';
-import 'package:task7/custom_favorite_icon.dart';
-import 'package:task7/custom_list_colors.dart';
-import 'package:task7/custom_number_of_items.dart';
+
+import 'package:task7/widgets/custom_appbar.dart';
+import 'package:task7/widgets/custom_button.dart';
+import 'package:task7/widgets/custom_favorite_icon.dart';
+import 'package:task7/widgets/custom_list_colors.dart';
+import 'package:task7/widgets/custom_number_of_items.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
