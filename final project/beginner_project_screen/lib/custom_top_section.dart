@@ -13,10 +13,13 @@ class CustomTopSection extends StatefulWidget {
 class _CustomTopSectionState extends State<CustomTopSection> {
   int selectedIndex = 0;
 
-  final List<String> imagePaths = List.generate(
-    4,
-    (index) => 'assets/images/headphone_icon${index + 1}.png',
-  );
+  final List<String> imagePaths =[
+    'assets/images/headphone_icon1.png',
+    'assets/images/headphone_icon2.png',
+    'assets/images/headphone_icon3.png',
+    'assets/images/headphone_icon4.png',
+  ];
+
 
   void updateSelectedImage(int index) {
     setState(() {
