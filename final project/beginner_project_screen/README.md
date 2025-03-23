@@ -1,16 +1,6 @@
-# beginner_project_screen
+# 🎧 Final Project Screen - Beginner Level (IEEE ManSC)
 
-A new Flutter project.
+This project represents the **Final Project Screen** at the **Beginner Level** in IEEE ManSC. It is a **Flutter-based UI design**, showcasing a product with interactive features such as image selection, color customization, and an "Add to Cart" button.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📸 Screenshot
+![App Screenshot](Final_Project_Screen.PNG)
