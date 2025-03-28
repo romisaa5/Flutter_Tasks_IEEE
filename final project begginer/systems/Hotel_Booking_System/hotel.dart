@@ -61,8 +61,8 @@ class Hotel {
     );
   }
 
-  @override
-  String toString() {
+  
+  String hotelInfo() {
     return "🏨 Hotel ID: $id, Name: $name, Total Rooms: ${rooms.length}";
   }
 }
