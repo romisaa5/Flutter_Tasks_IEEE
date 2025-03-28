@@ -1,5 +1,3 @@
-
-
 import 'hotel.dart';
 import 'room.dart';
 import 'user.dart';
@@ -17,14 +15,19 @@ void main() {
 
   hotel.showAvailableRooms();
 
-  User user1 = User("Ali");
+  User user1 = User("Ali", "U001"); 
 
-  user1.makeBooking(room1);
-  user1.makeBooking(room1);
+  user1.makeBooking(room1); 
+  user1.makeBooking(room1); 
 
   hotel.showAvailableRooms();
 
-  user1.cancelBooking(user1.bookings.first);
+
+  if (user1.bookings.isNotEmpty) {
+    user1.cancelBooking(user1.bookings.first.room.roomNumber);
+  } else {
+    print("No bookings to cancel.");
+  }
 
   hotel.showAvailableRooms();
 }
