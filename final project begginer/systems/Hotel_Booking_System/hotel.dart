@@ -13,39 +13,56 @@ class Hotel {
   }
 
   static String _generateId() {
-    return "HT${Random().nextInt(10000)}"; // توليد ID عشوائي للفندق
+    return "HT${Random().nextInt(10000)}";
   }
 
   void addRoom(Room room) {
     if (rooms.any((r) => r.roomNumber == room.roomNumber)) {
-      print("Room ${room.roomNumber} already exists in $name.");
+      print("❌ Room ${room.roomNumber} already exists in $name.");
       return;
     }
     rooms.add(room);
-    print("Room ${room.roomNumber} added to $name.");
+    print("✅ Room ${room.roomNumber} added to $name.");
+  }
+
+  void removeRoom(int roomNumber) {
+    Room? roomToRemove = rooms.firstWhere(
+      (room) => room.roomNumber == roomNumber,
+      orElse: () => Room(-1, 0, isAvailable: false),
+    );
+
+    if (roomToRemove.roomNumber == -1) {
+      print("❌ Room $roomNumber not found in $name.");
+      return;
+    }
+
+    rooms.remove(roomToRemove);
+    print(" Room $roomNumber removed from $name.");
   }
 
   void showAvailableRooms() {
     var availableRooms = rooms.where((room) => room.isAvailable).toList();
 
     if (availableRooms.isEmpty) {
-      print("No available rooms in $name.");
+      print("⚠️ No available rooms in $name.");
       return;
     }
 
-    print("Available Rooms in $name:");
+    print("🏨 Available Rooms in $name:");
     for (var room in availableRooms) {
       print("- Room ${room.roomNumber} | Price: \$${room.price.toStringAsFixed(2)}");
     }
-
   }
-  
-Room? getRoomByNumber(int roomNumber) {
-  return rooms.firstWhere((room) => room.roomNumber == roomNumber, orElse: () => Room(-1, 0, isAvailable: false));
-}
+
+  Room? getRoomByNumber(int roomNumber) {
+    return rooms.firstWhere(
+      (room) => room.roomNumber == roomNumber,
+      orElse: () => Room(-1, 0, isAvailable: false),
+    );
+  }
 
   @override
   String toString() {
-    return "Hotel ID: $id, Name: $name, Total Rooms: ${rooms.length}";
+    return "🏨 Hotel ID: $id, Name: $name, Total Rooms: ${rooms.length}";
   }
 }
