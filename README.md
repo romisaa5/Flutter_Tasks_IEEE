@@ -6,7 +6,7 @@ Welcome to the **IEEE_Tasks** repository! This repository contains all the tasks
 
 ## 🏆 Weekly Tasks Overview
 - **Weeks 1-7**: Beginner Level : [ Dart, OOP, and essential Flutter widgets ].
-- **Final Project**: A comprehensive project to apply all beginner-level concepts 🎯
+- **Final Project Beginner**: A comprehensive project to apply all beginner-level concepts 🎯
 - **Starting from Week 8**: We have moved to the **Intermediate Level**, covering more advanced Flutter concepts and real-world applications.
 - **Following Weeks**: Advanced Flutter topics and real-world applications 🚀
 
