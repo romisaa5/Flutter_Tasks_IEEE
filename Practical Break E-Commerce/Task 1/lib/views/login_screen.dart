@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task1/views/forget_password.dart';
 import 'package:task1/views/register_screen.dart';
 import 'package:task1/widgets/custom_button.dart';
 import 'package:task1/widgets/custom_divider.dart';
@@ -24,10 +25,19 @@ class LoginScreen extends StatelessWidget {
               CustomTextFormFieldForPasssword(),
               Align(
                 alignment: Alignment.centerRight,
-                child: Text(
-                  "Forget Password ?   ",
+                child: TextButton(
+                  onPressed: (){
+                     Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ForgetPassword(),
+                        ),
+                      );
+                  },
+                child: Text( "Forget Password ?   ",
                   style: TextStyle(color: Colors.red, fontSize: 14),
                 ),
+              ),
               ),
 
               CustomButton(title: 'Login'),
