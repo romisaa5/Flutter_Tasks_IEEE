@@ -4,6 +4,7 @@ import 'package:task1/views/login_screen.dart';
 void main() {
   runApp(const LoginAPP());
 }
+
 class LoginAPP extends StatelessWidget {
   const LoginAPP({super.key});
 
@@ -11,7 +12,7 @@ class LoginAPP extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Fristscreen(),
+      home: LoginScreen(),
     );
   }
 }

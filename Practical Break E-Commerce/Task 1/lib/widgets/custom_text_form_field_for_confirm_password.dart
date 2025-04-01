@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-class CustomTextFormFieldForPasssword extends StatefulWidget {
-  const CustomTextFormFieldForPasssword({super.key});
+class CustomTextFormFieldForConfirmPassword extends StatefulWidget {
+  const CustomTextFormFieldForConfirmPassword({super.key});
 
   @override
-  State<CustomTextFormFieldForPasssword> createState() =>
-      _CustomTextFormFieldForPassswordState();
+  State<CustomTextFormFieldForConfirmPassword> createState() =>
+      _CustomTextFormFieldForConfirmPasswordState();
 }
 
-class _CustomTextFormFieldForPassswordState
-    extends State<CustomTextFormFieldForPasssword> {
+class _CustomTextFormFieldForConfirmPasswordState
+    extends State<CustomTextFormFieldForConfirmPassword> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: 'Password',
+        labelText: 'Confirm Password',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0)),
         prefixIcon: const Icon(
           Icons.lock_outline,
