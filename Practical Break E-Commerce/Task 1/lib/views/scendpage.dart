@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task1/fristscreen.dart';
+import 'package:task1/views/login_screen.dart';
 
 
 class SecondPage extends StatelessWidget {

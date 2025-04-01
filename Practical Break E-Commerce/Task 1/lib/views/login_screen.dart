@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task1/scendpage.dart';
+import 'package:task1/views/scendpage.dart';
 
 
 class Fristscreen extends StatelessWidget {
