@@ -1,16 +1,23 @@
-# task1
+# Authentication UI Screens
 
-A new Flutter project.
+This repository contains a Flutter-based authentication UI, including login, signup, and password reset screens.
 
-## Getting Started
+## Screenshots
 
-This project is a starting point for a Flutter application.
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="assets/images/README/sign_up.PNG" width="250"></td>
+      <td><img src="assets/images/README/forget_password.PNG" width="250"></td>
+      <td><img src="assets/images/README/welcome_screen.PNG" width="250"></td>
+    </tr>
+  </table>
+</div>
 
-A few resources to get you started if this is your first Flutter project:
+## Features
+- 🔥 Modern and visually appealing UI
+- 📱 Responsive design for all devices
+- 🔒 Secure Email & Password authentication fields
+- 👁️ Toggle visibility for password input
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
