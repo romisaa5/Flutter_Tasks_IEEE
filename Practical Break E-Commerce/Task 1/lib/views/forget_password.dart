@@ -29,8 +29,10 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             ),
             Text('Please enter your email to reset the password',style:TextStyle(fontSize:16,color: Colors.black45 ) ,),
             Text('Your Email : '),
-            CustomTextFormFieldForEmail(),
-            CustomButton(title: 'Reset Password'),
+            CustomTextFormFieldForEmail(
+              emailController: emailController,
+            ),
+            CustomButton(title: 'Reset Password',onTap:(){} ,),
           ],
         ),
       ),
