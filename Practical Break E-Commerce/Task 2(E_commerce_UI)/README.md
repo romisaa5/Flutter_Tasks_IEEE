@@ -1,16 +1,54 @@
-# task2
+# 🛍️ E-Commerce App UI | Task 2 - IEEE ManSc Flutter Circle
 
-A new Flutter project.
+This project was built as part of **Task 2(E_commerce_UI)** in the **Flutter Circle** at  
+IEEE Mansoura Computer Society – *Practical Break E-Commerce*.
 
-## Getting Started
+It focuses on building the **Home Screen** and **Product Details Screen** for an e-commerce app using Flutter.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 📱 App Screens
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 🏠 Home Screen
+Displays product sections like Sale and New Items, each with product cards showing name, price, discount, and a favorite icon.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <img src="assets/images/README assets/home_screen.PNG" alt="Home Screen" width="250"/>
+</p>
+
+---
+
+### 📦 Product Details Screen
+Shows detailed product information like image, size, color, price, rating, and description. Also includes "Add to cart" button and favorite toggle.
+
+<p align="center">
+  <img src="assets/images/README assets/details_screen.PNG" alt="Details Screen" width="250"/>
+</p>
+
+---
+
+## 📂 Task Info
+
+- 📆 **Week**: Practical Break E-Commerce 
+- 📚 **Circle**: Flutter – IEEE Mansoura Computer Society Chapter (IEEE ManSc)  
+- 📝 **Task**: Task 2 (E_commerce_UI)
+- 🎯 **Goal**: Implement a UI based on a given design (Home & Product Details)
+
+---
+
+## 🛠️ Built With
+
+- **Flutter**
+- **Dart**
+- **Stateful Widgets**
+- **Basic Navigation (MaterialPageRoute)**
+
+
+---
+
+## 🙋‍♀️ Developed By
+
+**Romisah Mohamed Fadel**  
+*Flutter Circle Trainee - IEEE ManSC*
+
+
