@@ -1,7 +1,7 @@
-# 🛍️ E-Commerce App UI | Task 2 - IEEE ManSc Flutter Circle
+# 🛍️ E-Commerce App UI | Task 2 - IEEE ManSC Flutter Circle
 
 This project was built as part of **Task 2(E_commerce_UI)** in the **Flutter Circle** at  
-IEEE Mansoura Computer Society – *Practical Break E-Commerce*.
+IEEE Mansoura Computer Society Chapter – *Practical Break E-Commerce*.
 
 It focuses on building the **Home Screen** and **Product Details Screen** for an e-commerce app using Flutter.
 
