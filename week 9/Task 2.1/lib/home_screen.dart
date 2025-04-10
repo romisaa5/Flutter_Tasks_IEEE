@@ -7,15 +7,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Gallary', style: TextStyle(color: Colors.grey)),
+        title: const Text('Gallary', style: TextStyle(color: Color.fromARGB(255, 131, 129, 129))),
         centerTitle: true,
       ),
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisSpacing: 5,
-          crossAxisSpacing: 5,
-          childAspectRatio: 0.7,
+          mainAxisSpacing: 7,
+          crossAxisSpacing: 7,
+          childAspectRatio: 0.8,
         ),
         itemCount: 20,
         physics: const BouncingScrollPhysics(),
