@@ -40,7 +40,6 @@ class Hangman {
     stdout.write("Enter a letter: ");
     String? input = stdin.readLineSync() ?? 'a'.toLowerCase();
     if (input.isEmpty ||
-        input == null ||
         input.length > 1 ||
         guessedLetters.contains(input)) {
       print("Invalid input. Please enter a single new letter.");
