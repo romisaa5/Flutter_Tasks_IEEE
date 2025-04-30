@@ -2,16 +2,15 @@ import 'package:bmi/theme/colors.dart';
 import 'package:bmi/theme/text_style.dart';
 import 'package:flutter/material.dart';
 
-class HightContainer extends StatefulWidget {
-  const HightContainer({super.key, this.hight});
-  final int? hight;
+class HeightContainer extends StatelessWidget {
+  const HeightContainer({
+    super.key,
+    required this.height,
+    required this.onChanged,
+  });
+  final double height;
+  final Function(double) onChanged;
 
-  @override
-  State<HightContainer> createState() => _HightContainerState();
-}
-
-class _HightContainerState extends State<HightContainer> {
-  double _currentHeight = 170;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,18 +26,14 @@ class _HightContainerState extends State<HightContainer> {
           spacing: 15,
           children: [
             Row(children: [Text('Height', style: TextStyles.textStyle20)]),
-            Text(_currentHeight.toInt().toString(),style: TextStyles.textStyle64,),
+            Text(height.toInt().toString(), style: TextStyles.textStyle64),
             Slider(
               inactiveColor: AppColors.blackColor,
               activeColor: AppColors.kPrimaryColor,
               min: 50,
               max: 220,
-             value: _currentHeight,
-              onChanged: (value) {
-                setState(() {
-                  _currentHeight = value;
-                });
-              },
+              value: height,
+              onChanged: onChanged,
             ),
           ],
         ),

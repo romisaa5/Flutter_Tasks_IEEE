@@ -3,7 +3,7 @@ import 'package:bmi/theme/text_style.dart';
 import 'package:bmi/widgets/age_and_weight_container.dart';
 import 'package:bmi/widgets/custom_button.dart';
 import 'package:bmi/widgets/gender_selection.dart';
-import 'package:bmi/widgets/hight_container.dart';
+import 'package:bmi/widgets/height_container.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
@@ -15,6 +15,15 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   Gender? selectedGender;
+  double height = 170;
+  int weight = 60;
+  int age = 20;
+
+  double calculateBMI() {
+    double heightInMeters = height / 100;
+    return weight / (heightInMeters * heightInMeters);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,15 +73,47 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ],
               ),
-              HightContainer(),
+              HeightContainer(
+                height: height,
+                onChanged: (value) {
+                  setState(() {
+                    height = value;
+                  });
+                },
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  AgeAndWeightContainer(title: 'Weight',),
-                  AgeAndWeightContainer(title: 'Age',)
+                  AgeAndWeightContainer(
+                    title: 'Weight',
+                    unit: 'Kg',
+                    value: weight,
+                    onChanged: (val) {
+                      setState(() {
+                        weight = val;
+                      });
+                    },
+                  ),
+                  AgeAndWeightContainer(
+                    onChanged: (val) {
+                      setState(() {
+                        age = val;
+                      });
+                    },
+                    value: age,
+                    title: 'Age',
+                    unit: 'Year',
+                  ),
                 ],
               ),
-              CustomButton(onPressed: (){}, text: 'Calculate', icon: Icons.calculate_outlined)
+              CustomButton(
+                onPressed: () {
+                  double bmi = calculateBMI();
+                  Navigator.pushNamed(context, '/result', arguments: bmi);
+                },
+                text: 'Calculate',
+                icon: Icons.calculate_outlined,
+              ),
             ],
           ),
         ),

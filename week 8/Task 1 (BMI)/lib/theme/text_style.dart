@@ -7,6 +7,11 @@ class TextStyles {
     fontSize: 64,
     fontWeight: FontWeight.w700,
   );
+  static final textStyle40 = TextStyle(
+    color: AppColors.whiteColor,
+    fontSize: 40,
+    fontWeight: FontWeight.w700,
+  );
   static final textStyle12 = TextStyle(
     color: AppColors.whiteColor,
     fontSize: 12,

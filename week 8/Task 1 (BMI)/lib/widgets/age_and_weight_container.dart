@@ -2,14 +2,20 @@ import 'package:bmi/theme/colors.dart';
 import 'package:bmi/theme/text_style.dart';
 import 'package:flutter/material.dart';
 
-class AgeAndWeightContainer extends StatefulWidget {
-  const AgeAndWeightContainer({super.key, required this.title});
+class AgeAndWeightContainer extends StatelessWidget {
   final String title;
-  @override
-  State<AgeAndWeightContainer> createState() => _AgeAndWeightContainerState();
-}
+  final String unit;
+  final int value;
+  final Function(int) onChanged;
 
-class _AgeAndWeightContainerState extends State<AgeAndWeightContainer> {
+  const AgeAndWeightContainer({
+    super.key,
+    required this.title,
+    required this.unit,
+    required this.value,
+    required this.onChanged,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,19 +26,48 @@ class _AgeAndWeightContainerState extends State<AgeAndWeightContainer> {
         color: AppColors.kPrimaryColor.withValues(alpha: .18),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        spacing: 10,
         children: [
-        Text(widget.title,style:TextStyles.textStyle20 ,),
-        Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(),
-              child: IconButton(onPressed: (){
-              
-              }, icon: Icon(Icons.add)),
-            )
-          ],
-        )
-      ]),
+          Text(title, style: TextStyles.textStyle20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              iconContainer(Icons.add, () => onChanged(value + 1)),
+              Text(value.toString(), style: TextStyles.textStyle40),
+              iconContainer(Icons.remove, () {
+                if (value > 0) onChanged(value - 1);
+              }),
+            ],
+          ),
+          Text(
+            unit,
+            style: TextStyles.textStyle16.copyWith(
+              fontWeight: FontWeight.w500,
+              color: AppColors.greyColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget iconContainer(IconData icon, void Function() onPressed) {
+    return Container(
+      height: 34,
+      width: 34,
+      decoration: BoxDecoration(
+        color: AppColors.kPrimaryColor,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Align(
+        alignment: Alignment.center,
+        child: IconButton(
+          padding: EdgeInsets.zero,
+          onPressed: onPressed,
+          icon: Icon(icon, color: AppColors.blackColor),
+        ),
+      ),
     );
   }
 }
