@@ -76,7 +76,7 @@ class ResultView extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 12.0),
           child: AppBar(
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            backgroundColor: AppColors.blackColor,
             elevation: 0,
             title: Text('Results', style: TextStyles.textStyle20),
             leading: IconButton(
