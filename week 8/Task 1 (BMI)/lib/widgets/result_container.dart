@@ -18,7 +18,7 @@ class ResultContainer extends StatelessWidget {
     return Container(
       height: 300,
       width: 342,
-      padding: EdgeInsets.all(24),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppColors.kPrimaryColor.withValues(alpha: .18),
         borderRadius: BorderRadius.circular(12),
@@ -39,12 +39,12 @@ class ResultContainer extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   decoration: BoxDecoration(
-                    color: color ,
-                    borderRadius: BorderRadius.circular(20),
+                    color: color.withValues(alpha: .20) ,
+                    borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
                     bmiCategory,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyles.textStyle16.copyWith(color: color),
                   ),
                 ),
               ),

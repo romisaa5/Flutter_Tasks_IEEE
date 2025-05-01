@@ -18,9 +18,22 @@ class _HomeViewState extends State<HomeView> {
   double height = 170;
   int weight = 60;
   int age = 20;
+  String selectedHeightUnit = 'Cm';
 
   double calculateBMI() {
-    double heightInMeters = height / 100;
+    double heightInMeters;
+
+    switch (selectedHeightUnit) {
+      case 'In':
+        heightInMeters = height * 0.0254;
+        break;
+      case 'Ft':
+        heightInMeters = height * 0.3048;
+        break;
+      default:
+        heightInMeters = height / 100;
+    }
+
     return weight / (heightInMeters * heightInMeters);
   }
 
@@ -74,6 +87,11 @@ class _HomeViewState extends State<HomeView> {
                 ],
               ),
               HeightContainer(
+                onUnitChanged: (unit) {
+                  setState(() {
+                    selectedHeightUnit = unit;
+                  });
+                },
                 height: height,
                 onChanged: (value) {
                   setState(() {

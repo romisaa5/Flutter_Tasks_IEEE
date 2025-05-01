@@ -17,6 +17,11 @@ class TextStyles {
     fontSize: 12,
     fontWeight: FontWeight.w700,
   );
+    static final textStyle14 = TextStyle(
+    color: AppColors.whiteColor,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+  );
   static final textStyle16 = TextStyle(
     color: AppColors.whiteColor,
     fontSize: 16,
