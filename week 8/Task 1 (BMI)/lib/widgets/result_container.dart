@@ -16,7 +16,7 @@ class ResultContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 350,
       width: 342,
       padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
