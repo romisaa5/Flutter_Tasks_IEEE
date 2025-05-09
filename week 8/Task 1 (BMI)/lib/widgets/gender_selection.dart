@@ -25,9 +25,15 @@ class GenderSelection extends StatelessWidget {
         decoration: BoxDecoration(
           color:
               isSelected
-                  ? AppColors.kPrimaryColor.withValues(alpha: .38)
+                  ? AppColors.kPrimaryColor.withValues(alpha: .5)
                   : AppColors.kPrimaryColor.withValues(alpha: .18),
           borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            width: isSelected? 4 :0,
+            color: isSelected
+                ? AppColors.kPrimaryColor.withValues(alpha: .8)
+                : AppColors.kPrimaryColor.withValues(alpha: .18),
+          ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
