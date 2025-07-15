@@ -1,16 +1,37 @@
-# task1
+# 🛍️ Practical Break (2) - Product Details UI
 
-A new Flutter project.
+## 📌 Task Title:
+**Practical Break (2) - Product Details Page in Flutter**
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📱 Screen Overview:
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center">
+  <img src="assets/images/task_screenshot.PNG" alt="Product UI" width="300"/>
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🔍 Screen Features:
+
+-  Product image preview
+-  Product name and brand
+-  Rating & reviews
+-  Size selection (S, M, L, XL, 2XL)
+- Quantity adjustment buttons
+-  Product details: Material, Shipping, Returns
+- Price display with cart button
+
+---
+
+## 🛠️ Tech Stack:
+
+- **Framework:** Flutter  
+- **Language:** Dart  
+- **State Management:** `setState`  
+- **Theme:** Dark mode
+
+
+
