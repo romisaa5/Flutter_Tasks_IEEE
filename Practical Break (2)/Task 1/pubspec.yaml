@@ -1,0 +1,25 @@
+name: task1
+description: "A new Flutter project."
+publish_to: 'none' 
+version: 1.0.0+1
+environment:
+  sdk: ^3.7.2
+dependencies:
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  flutter_material_symbols: ^0.0.4
+  rate: ^0.0.2
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+  fonts:
+    - family: font1
+      fonts:
+        - asset: assets/fonts/Audiowide-Regular.ttf
+ 
