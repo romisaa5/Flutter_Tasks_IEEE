@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:task22/theme/app_colors.dart';
 import 'package:task22/theme/text_styles.dart';
 
-class TaskCard extends StatefulWidget {
-  const TaskCard({super.key, required this.title, required this.subtitle});
+class TaskCard extends StatelessWidget {
+  const TaskCard({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.onPressed,
+    required this.isChecked, this.onChanged,
+  });
   final String title;
   final String subtitle;
-  @override
-  State<TaskCard> createState() => _TaskCardState();
-}
+  final void Function()? onPressed;
+  final bool isChecked;
+  final void Function(bool?)? onChanged;
 
-class _TaskCardState extends State<TaskCard> {
-  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -26,11 +30,8 @@ class _TaskCardState extends State<TaskCard> {
           }),
 
           value: isChecked,
-          onChanged: (newValue) {
-            setState(() {
-              isChecked = newValue!;
-            });
-          },
+          onChanged:onChanged
+          
         ),
         trailing: IconButton(
           onPressed: () {
@@ -52,9 +53,7 @@ class _TaskCardState extends State<TaskCard> {
                         child: Text("Cancel", style: TextStyles.textstyle16),
                       ),
                       TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
+                        onPressed: onPressed,
                         child: Text(
                           "Delete",
                           style: TextStyles.textstyle16.copyWith(
@@ -68,8 +67,8 @@ class _TaskCardState extends State<TaskCard> {
           },
           icon: Icon(Icons.delete_outline, color: AppColors.redColor, size: 24),
         ),
-        title: Text(widget.title),
-        subtitle: Text(widget.subtitle),
+        title: Text(title),
+        subtitle: Text(subtitle),
       ),
     );
   }
