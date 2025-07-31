@@ -10,6 +10,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeView());
+    return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: false,
+        colorScheme: ColorScheme.light(primary: Colors.blue),
+        dialogTheme: const DialogTheme(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
+      home: HomeView(),
+    );
   }
 }

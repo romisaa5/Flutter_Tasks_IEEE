@@ -59,7 +59,6 @@ Future<void> showAddTaskBottomSheet(BuildContext context, SqfliteDb db) {
                         }
                       },
                     ),
-
                     Row(
                       children: [
                         TextButton(

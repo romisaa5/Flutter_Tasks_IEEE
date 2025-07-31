@@ -14,10 +14,22 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   SqfliteDb sqfliteDb = SqfliteDb();
   late Future<List<Map>> tasksFuture;
+
   @override
   void initState() {
     super.initState();
     tasksFuture = readData();
+  }
+
+  DateTime _parseDate(dynamic rawDate) {
+    if (rawDate == null || rawDate.toString().isEmpty) {
+      return DateTime.now();
+    }
+    try {
+      return DateTime.parse(rawDate);
+    } catch (e) {
+      return DateTime.now();
+    }
   }
 
   Future<List<Map>> readData() async {
@@ -72,7 +84,7 @@ class _HomeViewState extends State<HomeView> {
                         }
                       },
                       title: snapshot.data![index]['note'] as String,
-                      date: DateTime.parse(snapshot.data![index]['date']),
+                      date: _parseDate(snapshot.data![index]['date']),
                     );
                   },
                   itemCount: snapshot.data!.length,

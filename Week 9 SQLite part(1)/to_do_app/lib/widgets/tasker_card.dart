@@ -16,6 +16,7 @@ class TaskerCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: ListTile(
           leading: CustomCheckIsDone(),
           title: Text(title, style: TextStyle(fontWeight: FontWeight.bold)),
