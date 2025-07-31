@@ -8,7 +8,7 @@ Users can add tasks with an optional due date using a customized DatePicker.
 ## 📹 Demo
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/26729383-f60b-4166-9994-c20ff6e6e2a5" controls width="480" style="border-radius: 12px;"></video>
+  <video src="https://github.com/user-attachments/assets/79f616ac-6ede-42d6-8036-da80a88a7607" controls width="480" style="border-radius: 12px;"></video>
 </div>
 
 
