@@ -3,22 +3,22 @@ import 'package:expenzo_app/features/onboarding/presentation/ui/widgets/onboard_
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class FirstOnboardView extends StatelessWidget {
-  const FirstOnboardView({super.key});
+class SecondOnboardView extends StatelessWidget {
+  const SecondOnboardView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: OnboardBody(
         onTap: () {
-          GoRouter.of(context).push(AppRouter.secondScreen);
+          GoRouter.of(context).push(AppRouter.thirdScreen);
         },
-        currentIndex: 0,
-        title: 'Take Control of Your Finances',
+        currentIndex: 1,
+        title: 'Budgeting Made Simple',
         desc:
-            'Empower yourself financially with Expenzo! \nOur intuitive app makes it easy to track your income, expenses, and budget - all in one place.',
+            'We help you categorize your spending, identify areas to save, and stay on top of your financial goals.',
         buttonText: 'Continue',
-        image: 'assets/images/onboard1.png',
+        image: 'assets/images/onboard2.png',
       ),
     );
   }

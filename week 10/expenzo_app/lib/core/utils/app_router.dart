@@ -1,4 +1,7 @@
+import 'package:expenzo_app/features/home/presentation/ui/views/home_view.dart';
 import 'package:expenzo_app/features/onboarding/presentation/ui/views/first_onboard_view.dart';
+import 'package:expenzo_app/features/onboarding/presentation/ui/views/second_onboard_view.dart';
+import 'package:expenzo_app/features/onboarding/presentation/ui/views/third_onboard_view.dart';
 import 'package:expenzo_app/features/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,6 +20,15 @@ class AppRouter {
         path: firstScreen,
         builder: (context, state) => FirstOnboardView(),
       ),
+      GoRoute(
+        path: secondScreen,
+        builder: (context, state) => SecondOnboardView(),
+      ),
+      GoRoute(
+        path: thirdScreen,
+        builder: (context, state) => ThirdOnboardView(),
+      ),
+      GoRoute(path: homeview, builder: (context, state) => HomeView()),
     ],
   );
 }
