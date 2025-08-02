@@ -3,6 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextAppTheme {
+  static final textStyle48 = TextStyle(
+    color: AppColors.primaryColor,
+    fontSize: 48.sp,
+    fontWeight: FontWeight.bold,
+    fontFamily: 'font',
+    decoration: TextDecoration.none,
+  );
+  static final textStyle10 = TextStyle(
+    color: Color(0xff424242),
+    fontSize: 10.sp,
+    fontWeight: FontWeight.normal,
+    fontFamily: 'font',
+    decoration: TextDecoration.none,
+  );
   static final textStyle12 = TextStyle(
     color: AppColors.greyColor,
     fontSize: 12.sp,
