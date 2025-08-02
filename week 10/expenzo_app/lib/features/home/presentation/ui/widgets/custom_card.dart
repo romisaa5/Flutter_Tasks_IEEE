@@ -1,6 +1,6 @@
 import 'package:expenzo_app/core/theme/app_colors.dart';
 import 'package:expenzo_app/core/theme/text_app_theme.dart';
-import 'package:expenzo_app/features/home/presentation/models/transaction.dart';
+import 'package:expenzo_app/features/home/data/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

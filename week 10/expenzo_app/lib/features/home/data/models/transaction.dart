@@ -1,4 +1,4 @@
-import 'package:expenzo_app/features/home/presentation/models/category.dart';
+import 'package:expenzo_app/features/home/data/models/category.dart';
 
 class Transaction {
   final DateTime date;

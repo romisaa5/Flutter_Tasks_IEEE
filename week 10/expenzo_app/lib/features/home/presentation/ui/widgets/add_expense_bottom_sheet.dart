@@ -3,7 +3,7 @@ import 'package:expenzo_app/core/theme/app_colors.dart';
 import 'package:expenzo_app/core/theme/text_app_theme.dart';
 import 'package:expenzo_app/core/widgets/custom_button.dart';
 import 'package:expenzo_app/core/widgets/custom_text_form_field.dart';
-import 'package:expenzo_app/features/home/presentation/models/category.dart';
+import 'package:expenzo_app/features/home/data/models/category.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/category_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

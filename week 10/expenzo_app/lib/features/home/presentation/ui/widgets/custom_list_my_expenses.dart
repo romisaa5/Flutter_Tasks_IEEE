@@ -1,4 +1,4 @@
-import 'package:expenzo_app/features/home/presentation/models/transaction.dart';
+import 'package:expenzo_app/features/home/data/models/transaction.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
