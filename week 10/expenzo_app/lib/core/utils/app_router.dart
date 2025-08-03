@@ -1,3 +1,5 @@
+import 'package:expenzo_app/features/home/data/models/transaction.dart';
+import 'package:expenzo_app/features/home/presentation/ui/views/edit_transaction_view.dart';
 import 'package:expenzo_app/features/home/presentation/ui/views/home_view.dart';
 import 'package:expenzo_app/features/onboarding/presentation/ui/views/first_onboard_view.dart';
 import 'package:expenzo_app/features/onboarding/presentation/ui/views/second_onboard_view.dart';
@@ -11,6 +13,7 @@ class AppRouter {
   static final secondScreen = '/onboardingscreen2';
   static final thirdScreen = '/onboardingscreen3';
   static final homeview = '/homeview';
+  static final editview = '/editview';
   static final router = GoRouter(
     initialLocation: splashView,
 
@@ -29,6 +32,13 @@ class AppRouter {
         builder: (context, state) => ThirdOnboardView(),
       ),
       GoRoute(path: homeview, builder: (context, state) => HomeView()),
+      GoRoute(
+        path: editview,
+        builder: (context, state) {
+          final transaction = state.extra as TransactionExpense;
+          return EditTransactionView(transaction: transaction);
+        },
+      ),
     ],
   );
 }

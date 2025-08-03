@@ -1,16 +1,36 @@
 import 'package:expenzo_app/core/helper/extentions.dart';
 import 'package:expenzo_app/core/theme/app_colors.dart';
 import 'package:expenzo_app/core/theme/text_app_theme.dart';
-import 'package:expenzo_app/features/home/data/models/transaction.dart';
+import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_cubit.dart';
+import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_state.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/add_expense_bottom_sheet.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/custom_list_my_expenses.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/custom_list_tile_app_bar.dart';
-import 'package:expenzo_app/features/home/presentation/ui/widgets/do_not_have_any_expense.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/months_horizontal_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int selectedMonth = DateTime.now().month;
+
+  void onMonthSelected(int month) {
+    setState(() {
+      selectedMonth = month;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<TransactionCubit>().loadTransactions();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +49,27 @@ class HomeView extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Column(
         children: [
-          20.ph,
+          30.ph,
           CustomListTileAppBar(),
-          20.ph,
-          Text('\$392.09', style: TextAppTheme.textStyle48),
-          20.ph,
-          MonthsHorizontalList(),
-          Transaction.transactions.isEmpty
-              ? DonotHaveAnyExpense()
-              : Expanded(child: CustomListMyExpenses()),
+          40.ph,
+          BlocBuilder<TransactionCubit, TransactionState>(
+            builder: (context, state) {
+              double total = context.read<TransactionCubit>().getMonthlyTotal(
+                selectedMonth,
+              );
+              return Text(
+                '\$${total.toStringAsFixed(2)}',
+                style: TextAppTheme.textStyle48,
+              );
+            },
+          ),
+
+          40.ph,
+          MonthsHorizontalList(
+            selectedMonth: selectedMonth,
+            onMonthSelected: onMonthSelected,
+          ),
+          Expanded(child: CustomListMyExpenses(selectedMonth: selectedMonth)),
         ],
       ),
     );

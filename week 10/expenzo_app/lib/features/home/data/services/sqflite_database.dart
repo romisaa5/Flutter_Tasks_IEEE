@@ -1,3 +1,4 @@
+import 'package:expenzo_app/features/home/data/models/transaction.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -34,9 +35,9 @@ class SqfliteDb {
     await batch.commit();
   }
 
-  readData(String sql) async {
+  Future<List<Map<String, dynamic>>> readData(String sql) async {
     Database? myDb = await db;
-    List<Map> response = await myDb!.rawQuery(sql);
+    List<Map<String, dynamic>> response = await myDb!.rawQuery(sql);
     return response;
   }
 
@@ -56,5 +57,12 @@ class SqfliteDb {
     Database? myDb = await db;
     int response = await myDb!.rawDelete(sql);
     return response;
+  }
+
+  Future<List<TransactionExpense>> getAllTransactions() async {
+    Database? myDb = await db;
+    List<Map<String, dynamic>> data = await myDb!.query('transactions');
+
+    return data.map((e) => TransactionExpense.fromMap(e)).toList();
   }
 }

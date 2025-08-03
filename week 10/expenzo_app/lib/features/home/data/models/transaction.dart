@@ -1,36 +1,56 @@
 import 'package:expenzo_app/features/home/data/models/category.dart';
 
-class Transaction {
+class TransactionExpense {
+  final int? id;
   final DateTime date;
   final Category category;
   final double amount;
+  final String description;
 
-  Transaction({
+  TransactionExpense({
+    this.id,
     required this.date,
     required this.category,
     required this.amount,
+    required this.description,
   });
-  static List<Transaction> transactions = [
-    Transaction(
-      date: DateTime(2025, 8, 1),
-      category: Category(name: 'Coffee', imageUrl: 'assets/images/coffee.png'),
-      amount: 35.0,
-    ),
-    Transaction(
-      date: DateTime(2025, 8, 2),
+  TransactionExpense copyWith({
+    int? id,
+    DateTime? date,
+    Category? category,
+    double? amount,
+    String? description,
+  }) {
+    return TransactionExpense(
+      id: id ?? this.id,
+      date: date ?? this.date,
+      category: category ?? this.category,
+      amount: amount ?? this.amount,
+      description: description ?? this.description,
+    );
+  }
+
+  factory TransactionExpense.fromMap(Map<String, dynamic> map) {
+    return TransactionExpense(
+      id: map['id'],
+      date: DateTime.parse(map['date']),
       category: Category(
-        name: 'Pet Care',
-        imageUrl: 'assets/images/pet_care.png',
+        name: map['categoryName'],
+        imageUrl: map['categoryImage'],
       ),
-      amount: 120.0,
-    ),
-    Transaction(
-      date: DateTime(2025, 8, 3),
-      category: Category(
-        name: 'Commute',
-        imageUrl: 'assets/images/commute.png',
-      ),
-      amount: 50.0,
-    ),
-  ];
+      amount: map['amount'],
+      description: map['description'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'amount': amount,
+      'date': date.toIso8601String(),
+      'categoryName': category.name,
+      'categoryImage': category.imageUrl,
+      'description': description,
+    };
+  }
 }

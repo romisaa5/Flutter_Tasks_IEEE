@@ -1,9 +1,10 @@
 import 'package:expenzo_app/core/helper/extentions.dart';
 import 'package:expenzo_app/core/theme/app_colors.dart';
 import 'package:expenzo_app/core/theme/text_app_theme.dart';
-import 'package:expenzo_app/core/widgets/custom_button.dart';
 import 'package:expenzo_app/core/widgets/custom_text_form_field.dart';
 import 'package:expenzo_app/features/home/data/models/category.dart';
+import 'package:expenzo_app/features/home/data/services/sqflite_database.dart';
+import 'package:expenzo_app/features/home/presentation/ui/widgets/add_transaction_button.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/category_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,6 +37,8 @@ class _AddExpenseBottomSheetState extends State<AddExpenseBottomSheet> {
   final descriptionController = TextEditingController();
   final amountController = TextEditingController();
   final dateController = TextEditingController();
+  final db = SqfliteDb();
+
   @override
   void dispose() {
     descriptionController.dispose();
@@ -143,20 +146,15 @@ class _AddExpenseBottomSheetState extends State<AddExpenseBottomSheet> {
                   },
                 ),
                 20.ph,
-                CustomButton(
-                  onTap: () {
-                    if (_formKey.currentState!.validate()) {
-                      final description = descriptionController.text.trim();
-                      final amount =
-                          double.tryParse(amountController.text.trim()) ?? 0.0;
-                      final category = _category;
-                      final date = selectedDate;
-                      Navigator.pop(context);
-                    }
+                AddTransactionButton(
+                  formKey: _formKey,
+                  descriptionController: descriptionController,
+                  amountController: amountController,
+                  selectedCategory: _category,
+                  selectedDate: selectedDate,
+                  onSuccess: () {
+                    setState(() {});
                   },
-                  text: 'add',
-                  color: AppColors.primaryColor,
-                  width: double.infinity,
                 ),
 
                 Align(
