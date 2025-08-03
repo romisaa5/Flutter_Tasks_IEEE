@@ -18,6 +18,11 @@ It allows users to manage their daily transactions by adding, editing, and delet
 
 ---
 
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/24c5e3e7-40e3-4372-8523-0715c9927c77" controls width="480" style="border-radius: 12px;"></video>
+</div>
+
+---
 ## 📦 Packages Used
 
 - [`flutter_bloc`](https://pub.dev/packages/flutter_bloc) — state management with Cubit  
