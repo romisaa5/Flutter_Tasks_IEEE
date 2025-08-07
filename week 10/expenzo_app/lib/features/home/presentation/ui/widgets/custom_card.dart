@@ -2,7 +2,7 @@ import 'package:expenzo_app/core/theme/app_colors.dart';
 import 'package:expenzo_app/core/theme/text_app_theme.dart';
 import 'package:expenzo_app/core/utils/app_router.dart';
 import 'package:expenzo_app/features/home/data/models/transaction.dart';
-import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_cubit.dart';
+import 'package:expenzo_app/features/home/presentation/manager/transaction_cubit/transaction_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -12,14 +12,12 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({super.key, required this.transaction});
-
   final TransactionExpense transaction;
 
   @override
   Widget build(BuildContext context) {
     return Slidable(
       key: Key(transaction.id?.toString() ?? UniqueKey().toString()),
-
       endActionPane: ActionPane(
         motion: const ScrollMotion(),
         children: [

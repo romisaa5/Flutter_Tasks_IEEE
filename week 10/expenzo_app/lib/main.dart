@@ -1,6 +1,6 @@
 import 'package:expenzo_app/core/theme/app_colors.dart';
 import 'package:expenzo_app/core/utils/app_router.dart';
-import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_cubit.dart';
+import 'package:expenzo_app/features/home/presentation/manager/transaction_cubit/transaction_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

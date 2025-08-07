@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:expenzo_app/features/home/data/models/transaction.dart';
 import 'package:expenzo_app/features/home/data/services/sqflite_database.dart';
-import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_state.dart';
+import 'package:expenzo_app/features/home/presentation/manager/transaction_cubit/transaction_state.dart';
 
 class TransactionCubit extends Cubit<TransactionState> {
   TransactionCubit() : super(TransactionInitial());
@@ -36,7 +36,6 @@ class TransactionCubit extends Cubit<TransactionState> {
 
   void updateTransaction(TransactionExpense transaction) async {
     final dateString = transaction.date.toIso8601String();
-
     await SqfliteDb().updateData('''
     UPDATE transactions SET
       amount = ${transaction.amount},

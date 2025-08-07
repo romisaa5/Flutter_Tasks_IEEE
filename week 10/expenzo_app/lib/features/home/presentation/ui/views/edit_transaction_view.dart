@@ -5,7 +5,7 @@ import 'package:expenzo_app/core/widgets/custom_button.dart';
 import 'package:expenzo_app/core/widgets/custom_text_form_field.dart';
 import 'package:expenzo_app/features/home/data/models/category.dart';
 import 'package:expenzo_app/features/home/data/models/transaction.dart';
-import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_cubit.dart';
+import 'package:expenzo_app/features/home/presentation/manager/transaction_cubit/transaction_cubit.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/category_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -70,7 +70,6 @@ class _EditTransactionViewState extends State<EditTransactionView> {
       date: _selectedDate,
       category: _selectedCategory,
     );
-
     context.read<TransactionCubit>().updateTransaction(updatedTransaction);
     Navigator.pop(context);
   }

@@ -16,6 +16,5 @@ class TransactionLoaded extends TransactionState {
 
 class TransactionError extends TransactionState {
   final String error;
-
   TransactionError(this.error);
 }

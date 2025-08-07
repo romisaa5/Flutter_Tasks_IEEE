@@ -21,9 +21,7 @@ class _SplashViewState extends State<SplashView> {
     await Future.delayed(const Duration(seconds: 4));
     final prefs = await SharedPreferences.getInstance();
     final isOnBoarded = prefs.getBool('isOnBoarded') ?? false;
-
     if (!mounted) return;
-
     if (isOnBoarded) {
       GoRouter.of(context).go(AppRouter.homeview);
     } else {

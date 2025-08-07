@@ -93,7 +93,6 @@ class AppTextFormField extends StatelessWidget {
             hintStyle ??
             TextAppTheme.textStyle14.copyWith(color: AppColors.blackColor),
         hintText: hintText,
-
         suffixIcon: suffixIcon,
         prefixIcon: prefixIcon,
         fillColor: Colors.white,

@@ -1,8 +1,8 @@
 import 'package:expenzo_app/core/helper/extentions.dart';
 import 'package:expenzo_app/core/theme/app_colors.dart';
 import 'package:expenzo_app/core/theme/text_app_theme.dart';
-import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_cubit.dart';
-import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_state.dart';
+import 'package:expenzo_app/features/home/presentation/manager/transaction_cubit/transaction_cubit.dart';
+import 'package:expenzo_app/features/home/presentation/manager/transaction_cubit/transaction_state.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/add_expense_bottom_sheet.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/custom_list_my_expenses.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/custom_list_tile_app_bar.dart';

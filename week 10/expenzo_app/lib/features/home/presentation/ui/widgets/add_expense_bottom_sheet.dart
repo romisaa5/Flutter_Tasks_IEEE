@@ -46,7 +46,6 @@ class _AddExpenseBottomSheetState extends State<AddExpenseBottomSheet> {
     dateController.dispose();
     super.dispose();
   }
-
   Category? _category;
   DateTime? selectedDate;
   final List<Category> categories = [

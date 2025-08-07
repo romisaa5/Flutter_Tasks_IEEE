@@ -35,12 +35,6 @@ class SqfliteDb {
     await batch.commit();
   }
 
-  Future<List<Map<String, dynamic>>> readData(String sql) async {
-    Database? myDb = await db;
-    List<Map<String, dynamic>> response = await myDb!.rawQuery(sql);
-    return response;
-  }
-
   insertData(String sql) async {
     Database? myDb = await db;
     int response = await myDb!.rawInsert(sql);
@@ -62,7 +56,6 @@ class SqfliteDb {
   Future<List<TransactionExpense>> getAllTransactions() async {
     Database? myDb = await db;
     List<Map<String, dynamic>> data = await myDb!.query('transactions');
-
     return data.map((e) => TransactionExpense.fromMap(e)).toList();
   }
 }

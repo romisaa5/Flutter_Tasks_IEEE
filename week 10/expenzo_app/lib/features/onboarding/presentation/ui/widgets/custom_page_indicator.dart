@@ -4,19 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomPageIndicator extends StatelessWidget {
   final int currentIndex;
-  final int totalPages;
 
-  const CustomPageIndicator({
-    super.key,
-    required this.currentIndex,
-    this.totalPages = 3,
-  });
+  const CustomPageIndicator({super.key, required this.currentIndex});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(totalPages, (index) {
+      children: List.generate(3, (index) {
         bool isActive = index == currentIndex;
         return AnimatedContainer(
           duration: const Duration(milliseconds: 300),

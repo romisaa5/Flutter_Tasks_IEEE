@@ -11,9 +11,7 @@ class CustomButton extends StatelessWidget {
     this.onTap,
     required this.width,
     this.textcolor,
-
     this.isborder = true,
-    this.isIcon = false,
     this.hight,
   });
 
@@ -23,7 +21,6 @@ class CustomButton extends StatelessWidget {
   final double width;
   final void Function()? onTap;
   final bool isborder;
-  final bool isIcon;
   final double? hight;
 
   @override
@@ -31,6 +28,7 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
         width: width,
         height: hight ?? 55.h,
         decoration: BoxDecoration(
@@ -38,27 +36,13 @@ class CustomButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.r),
           color: color,
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              text,
-              style: TextAppTheme.textStyle18.copyWith(
-                color: textcolor ?? Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            if (isIcon == true) ...[
-              SizedBox(width: 8.w),
-              Icon(
-                Icons.arrow_forward_outlined,
-                color: Colors.white,
-                size: 18.sp,
-              ),
-            ],
-          ],
+        child: Text(
+          text,
+          style: TextAppTheme.textStyle18.copyWith(
+            color: textcolor ?? Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.center,
         ),
       ),
     );

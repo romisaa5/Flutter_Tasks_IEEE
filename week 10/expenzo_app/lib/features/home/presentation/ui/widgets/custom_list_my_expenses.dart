@@ -1,5 +1,5 @@
-import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_cubit.dart';
-import 'package:expenzo_app/features/home/presentation/manager/expense_cubit/transaction_state.dart';
+import 'package:expenzo_app/features/home/presentation/manager/transaction_cubit/transaction_cubit.dart';
+import 'package:expenzo_app/features/home/presentation/manager/transaction_cubit/transaction_state.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/custom_card.dart';
 import 'package:expenzo_app/features/home/presentation/ui/widgets/do_not_have_any_expense.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +21,7 @@ class CustomListMyExpenses extends StatelessWidget {
               state.transactions
                   .where((e) => e.date.month == selectedMonth)
                   .toList();
-
           if (filtered.isEmpty) return const DonotHaveAnyExpense();
-
           return ListView.separated(
             separatorBuilder:
                 (context, index) => const Divider(indent: 15, endIndent: 15),
@@ -33,10 +31,8 @@ class CustomListMyExpenses extends StatelessWidget {
             },
           );
         } else if (state is TransactionError) {
-          print(state.error);
           return Center(child: Text('Error: ${state.error}'));
         }
-
         return const SizedBox.shrink();
       },
     );
