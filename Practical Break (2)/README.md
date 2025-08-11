@@ -27,16 +27,36 @@ Create a product details screen in Flutter with custom styling.
 
 ---
 
-## 🛠 **Flutter Concepts Applied**
-- `List.generate()` for dynamic widget creation.
-- `SingleChildScrollView` / `ListView` for scrollable UI.
-- Using external packages for enhanced UI (rating bar).
-- Applying custom fonts via `pubspec.yaml`.
-- Network image loading and asset styling.
+## 📝 **Task 02 – Dart OOP (Presentation Needed)**
+**Objective:**  
+Create a simple **E-Commerce Command-Line App** using Dart & OOP principles.
+
+**Key Entities:**
+- **Category** → holds category details.
+- **Product** → contains product information like name, price, description.
+- **Order** → manages purchase details.
+- **User** → represents a customer with account info.
+
+**Requirements:**
+- Apply **OOP principles** (Encapsulation, Inheritance, Polymorphism, Abstraction).
+- Implement main system processes:
+  - Add categories & products.
+  - Show available products.
+  - Place an order.
+  - View order summary.
+
+---
+
+## 🛠 **Concepts Practiced**
+- Dynamic UI generation with `List.generate()`.
+- Scrollable views with `ListView` / `SingleChildScrollView`.
+- Integrating custom fonts & external packages in Flutter.
+- Dart class design & relationships between entities.
+- CLI input/output handling in Dart.
 
 ---
 
 ## 🏆 **Outcome**
-- Practiced integrating custom fonts and assets in Flutter.
-- Learned to use external packages for specialized widgets.
-- Strengthened dynamic UI generation with `List.generate()`.
+- Built a complete Flutter product details screen.
+- Designed and implemented a mini E-Commerce system in Dart.
+- Strengthened understanding of both **UI building** and **backend logic** with OOP.
