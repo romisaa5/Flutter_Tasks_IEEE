@@ -34,7 +34,7 @@ class FoodRecipeCard extends StatelessWidget {
                   ),
                 ],
               ),
-              child: const CardBody(),
+              child: CardBody(meal: foodRecipe),
             ),
           ),
           Positioned(

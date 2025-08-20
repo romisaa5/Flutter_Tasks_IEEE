@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipe_app/core/utils/app_colors.dart';
 import 'package:food_recipe_app/core/utils/app_text_theme.dart';
 import 'package:food_recipe_app/features/home/presentation/manager/meal_details/meal_details_cubit.dart';
-import 'package:food_recipe_app/features/home/presentation/ui/widgets/custom_favorite_icon.dart';
+import 'package:food_recipe_app/core/widgets/custom_favorite_icon.dart';
 import 'package:food_recipe_app/features/home/presentation/ui/widgets/custom_loader.dart';
 import 'package:food_recipe_app/features/home/presentation/ui/widgets/detail_tab_bar.dart';
 import 'package:food_recipe_app/features/home/presentation/ui/widgets/more_options_menu.dart';
@@ -76,7 +76,12 @@ class _MealDetailsViewState extends State<MealDetailsView> {
                         'Category : ${meal.strCategory} ',
                         style: TextAppTheme.textStyle12,
                       ),
-                      trailing: CustomFavoriteIcon(),
+                      trailing: CustomFavoriteIcon(
+                        id: meal.idMeal??'',
+                        title: meal.strMeal??'',
+                        imageUrl: meal.strMealThumb??'',
+
+                      ),
                     ),
 
                     DetailTabsSection(recipe: meal),

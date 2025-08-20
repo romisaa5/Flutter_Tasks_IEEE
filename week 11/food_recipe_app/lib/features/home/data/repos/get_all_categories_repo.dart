@@ -7,7 +7,6 @@ class GetAllCategoriesRepo {
   GetAllCategoriesRepo({required this.apiServices});
   Future<List<FoodCategory>> getAllCategories() async {
     final Response response = await apiServices.getCategories();
-
     final dynamic data = response.data;
     List<FoodCategory> categories = [];
     for (var category in data['categories']) {

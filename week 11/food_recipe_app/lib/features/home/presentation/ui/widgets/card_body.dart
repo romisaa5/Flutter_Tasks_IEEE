@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_recipe_app/core/helper/extentions.dart';
 import 'package:food_recipe_app/core/utils/app_text_theme.dart';
-import 'package:food_recipe_app/features/home/presentation/ui/widgets/custom_favorite_icon.dart';
+import 'package:food_recipe_app/features/home/data/models/recipes_by_category/meal.dart';
+import 'package:food_recipe_app/core/widgets/custom_favorite_icon.dart';
 
 class CardBody extends StatelessWidget {
-  const CardBody({super.key});
-
+  const CardBody({super.key, required this.meal});
+final Meal meal;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,7 +15,7 @@ class CardBody extends StatelessWidget {
         children: [
           75.ph,
           Text(
-            'Spaghetti Carbonara',
+            meal.strMeal??'',
             style: TextAppTheme.textStyle14.copyWith(
               color: Colors.black,
               fontWeight: FontWeight.bold,
@@ -35,7 +36,11 @@ class CardBody extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            trailing: CustomFavoriteIcon(),
+            trailing: CustomFavoriteIcon(
+              id:meal.idMeal??'' ,
+              title: meal.strMeal??'',
+              imageUrl: meal.strMealThumb??'',
+            ),
           ),
         ],
       ),
