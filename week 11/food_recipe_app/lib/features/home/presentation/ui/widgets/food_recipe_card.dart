@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipe_app/core/utils/app_colors.dart';
 import 'package:food_recipe_app/features/home/data/models/recipes_by_category/meal.dart';
 import 'package:food_recipe_app/features/home/presentation/ui/widgets/card_body.dart';
+import 'package:food_recipe_app/features/home/presentation/ui/widgets/custom_loader.dart';
 
 class FoodRecipeCard extends StatelessWidget {
   const FoodRecipeCard({super.key, required this.foodRecipe});
@@ -48,10 +49,7 @@ class FoodRecipeCard extends StatelessWidget {
                   fit: BoxFit.cover,
                   width: 90,
                   height: 90,
-                  placeholder:
-                      (context, url) => Center(
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      ),
+                  placeholder: (context, url) => Center(child: CustomLoader()),
                   errorWidget:
                       (context, url, error) => Icon(
                         Icons.broken_image,

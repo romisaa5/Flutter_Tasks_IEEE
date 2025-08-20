@@ -9,6 +9,7 @@ import 'package:food_recipe_app/features/home/presentation/manager/get_all_categ
 import 'package:food_recipe_app/features/home/presentation/manager/get_recipes/get_recipes_cubit.dart';
 import 'package:food_recipe_app/features/home/presentation/ui/widgets/categories_shimmer.dart';
 import 'package:food_recipe_app/features/home/presentation/ui/widgets/food_recipe_card.dart';
+import 'package:food_recipe_app/features/home/presentation/ui/widgets/food_recipe_skeleton_grid.dart';
 import 'package:go_router/go_router.dart';
 
 class FiltersFoodRecipe extends StatefulWidget {
@@ -39,7 +40,6 @@ class _FiltersFoodRecipeState extends State<FiltersFoodRecipe> {
           categories = state.categories;
           return Column(
             children: [
-              // ✅ قائمة الكاتيجوريز
               SizedBox(
                 height: 45.h,
                 child: ListView.builder(
@@ -53,7 +53,6 @@ class _FiltersFoodRecipeState extends State<FiltersFoodRecipe> {
                         setState(() {
                           selectedCategory = category;
                         });
-                        // ✅ لما أغير الكاتيجوري أجيب الريسيبيز بتاعتها
                         BlocProvider.of<GetRecipesCubit>(
                           context,
                         ).fetchRecipesByCategory(category);
@@ -98,7 +97,7 @@ class _FiltersFoodRecipeState extends State<FiltersFoodRecipe> {
               BlocBuilder<GetRecipesCubit, GetRecipesState>(
                 builder: (context, state) {
                   if (state is GetRecipesLoading) {
-                    return const Center(child: CircularProgressIndicator());
+                    return FoodRecipeSkeletonGrid();
                   } else if (state is GetRecipesSuccess) {
                     final filteredMeals = state.meals;
                     return SizedBox(
@@ -149,10 +148,21 @@ class _FiltersFoodRecipeState extends State<FiltersFoodRecipe> {
             ],
           );
         } else if (state is GetAllCategoryLoading) {
-          return const CategoriesShimmer();
-        } else {
-          return const CategoriesShimmer();
+          return Column(
+            children: [
+              const CategoriesShimmer(),
+              20.ph,
+              FoodRecipeSkeletonGrid(),
+            ],
+          );
         }
+        return Column(
+          children: [
+            const CategoriesShimmer(),
+            20.ph,
+            FoodRecipeSkeletonGrid(),
+          ],
+        );
       },
     );
   }
