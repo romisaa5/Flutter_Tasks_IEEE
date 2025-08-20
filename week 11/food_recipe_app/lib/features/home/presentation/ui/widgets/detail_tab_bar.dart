@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipe_app/core/utils/app_colors.dart';
-
-
+import 'package:food_recipe_app/core/utils/app_text_theme.dart';
+import 'package:food_recipe_app/features/home/data/models/meal_details/meal.dart';
 
 class DetailTabsSection extends StatefulWidget {
-
-
-  const DetailTabsSection({super.key});
-
+  const DetailTabsSection({super.key, required this.recipe});
+  final MealDetails recipe;
   @override
   State<DetailTabsSection> createState() => _DetailTabsSectionState();
 }
@@ -34,7 +32,6 @@ class _DetailTabsSectionState extends State<DetailTabsSection>
 
   @override
   Widget build(BuildContext context) {
- 
     return Column(
       children: [
         TabBar(
@@ -64,76 +61,76 @@ class _DetailTabsSectionState extends State<DetailTabsSection>
             );
           }),
         ),
-        // SizedBox(
-        //   height: 400,
-        //   child: TabBarView(
-        //     controller: _tabController,
-        //     children: [
-        //       // _buildIngredientsTab(recipe),
-        //       // _buildInstructionsTab(recipe),
-        //     ],
-        //   ),
-        // ),
+        SizedBox(
+          height: 400,
+          child: TabBarView(
+            controller: _tabController,
+            children: [
+              _buildIngredientsTab(widget.recipe),
+              _buildInstructionsTab(widget.recipe),
+            ],
+          ),
+        ),
       ],
     );
   }
 
-  // Widget _buildIngredientsTab(Meal recipe) {
-  //   final ingredients = <String>[];
+  Widget _buildIngredientsTab(MealDetails recipe) {
+    final ingredients = <String>[];
 
-  //   for (int i = 1; i <= 20; i++) {
-  //     final ingredient = recipe.toJson()["strIngredient$i"];
-  //     final measure = recipe.toJson()["strMeasure$i"];
-  //     if (ingredient != null &&
-  //         ingredient.toString().isNotEmpty &&
-  //         ingredient.toString() != "") {
-  //       ingredients.add('$ingredient - ${measure ?? ""}');
-  //     }
-  //   }
+    for (int i = 1; i <= 20; i++) {
+      final ingredient = recipe.toJson()["strIngredient$i"];
+      final measure = recipe.toJson()["strMeasure$i"];
+      if (ingredient != null &&
+          ingredient.toString().isNotEmpty &&
+          ingredient.toString() != "") {
+        ingredients.add('$ingredient - ${measure ?? ""}');
+      }
+    }
 
-  //   return ListView.builder(
-  //     padding: const EdgeInsets.all(16),
-  //     itemCount: ingredients.length,
-  //     itemBuilder: (context, index) {
-  //       final ingredient = ingredients[index].split(" - ")[0];
-  //       final measure = ingredients[index].split(" - ")[1];
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: ingredients.length,
+      itemBuilder: (context, index) {
+        final ingredient = ingredients[index].split(" - ")[0];
+        final measure = ingredients[index].split(" - ")[1];
 
-  //       return Card(
-  //         elevation: 2,
-  //         color: AppColors.greyColor,
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.circular(16),
-  //         ),
-  //         margin: const EdgeInsets.symmetric(vertical: 8),
-  //         child: ListTile(
-  //           leading: const Icon(
-  //             Icons.check_circle_outline,
-  //             color: AppColors.primaryColor,
-  //           ),
-  //           title: Text(
-  //             ingredient,
-  //             style: TextAppTheme.textStyle16.copyWith(
-  //               fontWeight: FontWeight.bold,
-  //               color: Colors.black,
-  //             ),
-  //           ),
-  //           subtitle: Text(
-  //             measure,
-  //             style: TextAppTheme.textStyle14.copyWith(color: Colors.grey[600]),
-  //           ),
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
+        return Card(
+          elevation: 2,
+          color: AppColors.greyColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          margin: const EdgeInsets.symmetric(vertical: 8),
+          child: ListTile(
+            leading: const Icon(
+              Icons.check_circle_outline,
+              color: AppColors.primaryColor,
+            ),
+            title: Text(
+              ingredient,
+              style: TextAppTheme.textStyle16.copyWith(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            subtitle: Text(
+              measure,
+              style: TextAppTheme.textStyle14.copyWith(color: Colors.grey[600]),
+            ),
+          ),
+        );
+      },
+    );
+  }
 
-  // Widget _buildInstructionsTab(Meal recipe) {
-  //   return Padding(
-  //     padding: const EdgeInsets.all(16),
-  //     child: Text(
-  //       recipe.strInstructions ?? "No instructions available",
-  //       style: TextAppTheme.textStyle14.copyWith(color: Colors.black),
-  //     ),
-  //   );
-  // }
+  Widget _buildInstructionsTab(MealDetails recipe) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Text(
+        recipe.strInstructions ?? "No instructions available",
+        style: TextAppTheme.textStyle14.copyWith(color: Colors.black),
+      ),
+    );
+  }
 }

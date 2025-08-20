@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:food_recipe_app/features/home/data/models/meal_details/meal.dart';
 import 'package:food_recipe_app/features/home/presentation/ui/widgets/recipe_link_dialog.dart';
 
 class MoreOptionsMenu extends StatelessWidget {
-  const MoreOptionsMenu({super.key});
-
+  const MoreOptionsMenu({super.key, required this.mealDetails});
+final MealDetails mealDetails;
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<int>(
@@ -15,7 +16,7 @@ class MoreOptionsMenu extends StatelessWidget {
           case 0:
             showDialog(
               context: context,
-              builder: (context) => RecipeLinkDialog(),
+              builder: (context) => RecipeLinkDialog(mealDetails: mealDetails,),
             );
 
             break;

@@ -1,10 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipe_app/core/utils/app_colors.dart';
+import 'package:food_recipe_app/features/home/data/models/recipes_by_category/meal.dart';
 import 'package:food_recipe_app/features/home/presentation/ui/widgets/card_body.dart';
 
 class FoodRecipeCard extends StatelessWidget {
-  const FoodRecipeCard({super.key});
+  const FoodRecipeCard({super.key, required this.foodRecipe});
+  final Meal foodRecipe;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class FoodRecipeCard extends StatelessWidget {
                   ),
                 ],
               ),
-              child: CardBody(),
+              child: const CardBody(),
             ),
           ),
           Positioned(
@@ -39,11 +42,23 @@ class FoodRecipeCard extends StatelessWidget {
             child: CircleAvatar(
               radius: 45,
               backgroundColor: Colors.white,
-              child: Image.asset(
-                'assets/images/Image.png',
-                width: 90.w,
-                height: 90.w,
-                fit: BoxFit.cover,
+              child: ClipOval(
+                child: CachedNetworkImage(
+                  imageUrl: foodRecipe.strMealThumb ?? '',
+                  fit: BoxFit.cover,
+                  width: 90,
+                  height: 90,
+                  placeholder:
+                      (context, url) => Center(
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      ),
+                  errorWidget:
+                      (context, url, error) => Icon(
+                        Icons.broken_image,
+                        size: 40,
+                        color: Colors.grey,
+                      ),
+                ),
               ),
             ),
           ),

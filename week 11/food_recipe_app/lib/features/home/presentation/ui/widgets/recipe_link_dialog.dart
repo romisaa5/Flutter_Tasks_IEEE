@@ -4,10 +4,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipe_app/core/helper/custom_snackbar.dart';
 import 'package:food_recipe_app/core/utils/app_colors.dart';
 import 'package:food_recipe_app/core/utils/app_text_theme.dart';
+import 'package:food_recipe_app/features/home/data/models/meal_details/meal.dart';
 
 class RecipeLinkDialog extends StatelessWidget {
-  const RecipeLinkDialog({super.key});
-
+  const RecipeLinkDialog({super.key, required this.mealDetails});
+  final MealDetails mealDetails;
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -46,7 +47,7 @@ class RecipeLinkDialog extends StatelessWidget {
                       child: SizedBox(
                         width: 170,
                         child: Text(
-                          'https://www.foodrecipeapp.com/recipe/12345',
+                          mealDetails.strSource ?? 'No link available',
                           style: TextAppTheme.textStyle12.copyWith(
                             color: Colors.black,
                           ),

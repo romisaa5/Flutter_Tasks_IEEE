@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipe_app/core/utils/app_router.dart';
 import 'package:food_recipe_app/core/utils/app_text_theme.dart';
+import 'package:food_recipe_app/features/home/presentation/ui/widgets/custom_favorite_icon.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomFavoriteCard extends StatelessWidget {
@@ -24,18 +25,10 @@ class CustomFavoriteCard extends StatelessWidget {
               Positioned.fill(
                 child: Image.asset('assets/images/food.png', fit: BoxFit.cover),
               ),
-
               Positioned.fill(
                 child: Container(color: Colors.black.withValues(alpha: .5)),
               ),
-              Positioned(
-                right: 10,
-                bottom: 20,
-                child: IconButton(
-                  icon: const Icon(Icons.favorite, color: Colors.white),
-                  onPressed: onPressed,
-                ),
-              ),
+              Positioned(right: 10, bottom: 20, child: CustomFavoriteIcon()),
               Positioned(
                 bottom: 40,
                 left: 10,

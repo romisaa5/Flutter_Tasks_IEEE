@@ -1,15 +1,40 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_recipe_app/core/utils/api_services.dart';
 import 'package:food_recipe_app/core/utils/app_colors.dart';
 import 'package:food_recipe_app/core/utils/app_text_theme.dart';
 import 'package:food_recipe_app/features/favorites/presentation/ui/views/favorites_view.dart';
+import 'package:food_recipe_app/features/home/data/repos/get_all_categories_repo.dart';
+import 'package:food_recipe_app/features/home/data/repos/get_recipes_by_category_repo.dart';
+import 'package:food_recipe_app/features/home/presentation/manager/get_all_category/get_all_category_cubit.dart';
+import 'package:food_recipe_app/features/home/presentation/manager/get_recipes/get_recipes_cubit.dart';
 import 'package:food_recipe_app/features/home/presentation/ui/views/home_view.dart';
 import 'package:food_recipe_app/features/nav_bar/presentation/manager/navbar_cubit/navbar_cubit.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
-  static List<Widget> views = [const HomeView(), const FavoritesView()];
+  static List<Widget> views = [
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create:
+              (context) => GetAllCategoryCubit(
+                GetAllCategoriesRepo(apiServices: ApiServices(dio: Dio())),
+              ),
+        ),
+        BlocProvider(
+          create:
+              (context) => GetRecipesCubit(
+                GetRecipesByCategoryRepo(apiServices: ApiServices(dio: Dio())),
+              ),
+        ),
+      ],
+      child: HomeView(),
+    ),
+    const FavoritesView(),
+  ];
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NavbarCubit, NavbarState>(

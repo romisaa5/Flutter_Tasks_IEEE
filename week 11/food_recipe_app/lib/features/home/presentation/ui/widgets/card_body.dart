@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipe_app/core/helper/extentions.dart';
 import 'package:food_recipe_app/core/utils/app_text_theme.dart';
+import 'package:food_recipe_app/features/home/presentation/ui/widgets/custom_favorite_icon.dart';
 
 class CardBody extends StatelessWidget {
   const CardBody({super.key});
@@ -35,11 +35,7 @@ class CardBody extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            trailing: CircleAvatar(
-              radius: 12.r,
-              backgroundColor: Colors.white,
-              child: Icon(Icons.favorite, size: 16.sp, color: Colors.black54),
-            ),
+            trailing: CustomFavoriteIcon(),
           ),
         ],
       ),

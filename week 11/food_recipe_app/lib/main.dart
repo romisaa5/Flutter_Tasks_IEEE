@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipe_app/core/utils/app_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const FoodRecipeApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final isOnBoarded = prefs.getBool('isOnBoarded') ?? false;
+
+  runApp(FoodRecipeApp(isOnBoarded: isOnBoarded));
 }
 
 class FoodRecipeApp extends StatelessWidget {
-  const FoodRecipeApp({super.key});
+  final bool isOnBoarded;
+  const FoodRecipeApp({super.key, required this.isOnBoarded});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,7 @@ class FoodRecipeApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp.router(
           title: 'Food Recipe App',
-          routerConfig: AppRouter.getRouter(),
+          routerConfig: AppRouter.getRouter(isOnBoarded: isOnBoarded),
           debugShowCheckedModeBanner: false,
         );
       },
