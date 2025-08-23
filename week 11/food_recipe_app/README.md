@@ -51,6 +51,13 @@ lib/
 ```
 ---
 
+
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/611d2b1d-0859-4509-a515-b784aa1fb8ec" controls width="480" style="border-radius: 12px;"></video>
+</div>
+
+---
+
 ## 📚 Resources
 - [TheMealDB API Docs](https://www.themealdb.com/api.php)  
 - [Dio Documentation](https://pub.dev/packages/dio)  
