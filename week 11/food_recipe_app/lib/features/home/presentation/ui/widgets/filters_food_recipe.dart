@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_recipe_app/core/helper/extentions.dart';
 import 'package:food_recipe_app/core/utils/app_colors.dart';
 import 'package:food_recipe_app/core/utils/app_router.dart';
+import 'package:food_recipe_app/features/favorites/presentation/manager/favorites/favorites_cubit.dart';
 import 'package:food_recipe_app/features/home/data/models/categories/category.dart';
 import 'package:food_recipe_app/features/home/presentation/manager/get_all_category/get_all_category_cubit.dart';
 import 'package:food_recipe_app/features/home/presentation/manager/get_recipes/get_recipes_cubit.dart';
@@ -27,7 +28,6 @@ class _FiltersFoodRecipeState extends State<FiltersFoodRecipe> {
   void initState() {
     super.initState();
     BlocProvider.of<GetAllCategoryCubit>(context).fetchAllCategories();
-    // أول مرة يجيب Beef
     BlocProvider.of<GetRecipesCubit>(context).fetchRecipesByCategory('Beef');
     selectedCategory = 'Beef';
   }
@@ -116,9 +116,16 @@ class _FiltersFoodRecipeState extends State<FiltersFoodRecipe> {
                           final meal = filteredMeals[index];
                           return GestureDetector(
                             onTap: () {
-                              GoRouter.of(
-                                context,
-                              ).push(AppRouter.detailsview, extra: meal.idMeal);
+                              GoRouter.of(context)
+                                  .push(
+                                    AppRouter.detailsview,
+                                    extra: meal.idMeal,
+                                  )
+                                  .then((_) {
+                                    context
+                                        .read<FavoritesCubit>()
+                                        .loadFavorites();
+                                  });
                             },
                             child: FoodRecipeCard(foodRecipe: meal),
                           );

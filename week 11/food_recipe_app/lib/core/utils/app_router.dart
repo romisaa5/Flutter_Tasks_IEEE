@@ -25,9 +25,12 @@ class AppRouter {
         GoRoute(
           path: navBar,
           builder:
-              (context, state) => BlocProvider(
-                create: (context) => NavbarCubit(),
-                child: const NavBar(),
+              (context, state) => MultiBlocProvider(
+                providers: [
+                  BlocProvider(create: (context) => NavbarCubit()),
+                  
+                ],
+                child: NavBar(),
               ),
         ),
         GoRoute(
@@ -35,10 +38,10 @@ class AppRouter {
           builder: (context, state) {
             final mealId = state.extra as String;
             return BlocProvider(
-              create: (context) => MealDetailsCubit(
-                MealDetailsRepo(apiServices: ApiServices(dio: Dio())),
-              )
-                ..fetchMealDetails(mealId),
+              create:
+                  (context) => MealDetailsCubit(
+                    MealDetailsRepo(apiServices: ApiServices(dio: Dio())),
+                  )..fetchMealDetails(mealId),
               child: MealDetailsView(mealId: mealId),
             );
           },

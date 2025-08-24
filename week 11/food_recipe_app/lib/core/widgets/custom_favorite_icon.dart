@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_recipe_app/core/services/favorite_meals_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_recipe_app/features/favorites/data/models/favorite_recipe.dart';
+import 'package:food_recipe_app/features/favorites/presentation/manager/favorites/favorites_cubit.dart';
 
-
-class CustomFavoriteIcon extends StatefulWidget {
+class CustomFavoriteIcon extends StatelessWidget {
   final String id;
   final String title;
   final String imageUrl;
@@ -16,54 +16,33 @@ class CustomFavoriteIcon extends StatefulWidget {
   });
 
   @override
-  State<CustomFavoriteIcon> createState() => _CustomFavoriteIconState();
-}
-
-class _CustomFavoriteIconState extends State<CustomFavoriteIcon> {
-  bool isFavorite = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _checkFavorite();
-  }
-
-  Future<void> _checkFavorite() async {
-    final db = SqfliteDb();
-    final fav = await db.isFavorite(widget.id);
-    if (mounted) setState(() => isFavorite = fav);
-  }
-
-  Future<void> _toggleFavorite() async {
-    final db = SqfliteDb();
-    if (isFavorite) {
-      await db.deleteFavorite(widget.id);
-    } else {
-      await db.insertFavorite(
-        FavoriteRecipe(
-          id: widget.id.toString(),
-          title: widget.title,
-          imageUrl: widget.imageUrl,
-        ),
-      );
-    }
-    setState(() => isFavorite = !isFavorite);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: 15.0,
-      backgroundColor: Colors.white,
-      child: IconButton(
-        padding: EdgeInsets.zero,
-        icon: Icon(
-          isFavorite ? Icons.favorite : Icons.favorite_border,
-          size: 18.0,
-          color: isFavorite ? Colors.red : Colors.black54,
-        ),
-        onPressed: _toggleFavorite,
-      ),
+    return BlocBuilder<FavoritesCubit, FavoritesState>(
+      builder: (context, state) {
+        bool isFavorite = false;
+
+        if (state is FavoritesLoaded) {
+          isFavorite = state.favorites.any((fav) => fav.id == id);
+        }
+
+        return CircleAvatar(
+          radius: 15.0,
+          backgroundColor: Colors.white,
+          child: IconButton(
+            padding: EdgeInsets.zero,
+            icon: Icon(
+              isFavorite ? Icons.favorite : Icons.favorite_border,
+              size: 18.0,
+              color: isFavorite ? Colors.red : Colors.black54,
+            ),
+            onPressed: () {
+              context.read<FavoritesCubit>().toggleFavorite(
+                FavoriteRecipe(id: id, title: title, imageUrl: imageUrl),
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

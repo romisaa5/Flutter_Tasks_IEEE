@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_recipe_app/core/services/favorite_meals_service.dart';
 import 'package:food_recipe_app/core/utils/app_router.dart';
+import 'package:food_recipe_app/features/favorites/presentation/manager/favorites/favorites_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
@@ -21,10 +24,13 @@ class FoodRecipeApp extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       builder: (context, child) {
-        return MaterialApp.router(
-          title: 'Food Recipe App',
-          routerConfig: AppRouter.getRouter(isOnBoarded: isOnBoarded),
-          debugShowCheckedModeBanner: false,
+        return BlocProvider(
+          create: (context) => FavoritesCubit(SqfliteDb())..loadFavorites(),
+          child: MaterialApp.router(
+            title: 'Food Recipe App',
+            routerConfig: AppRouter.getRouter(isOnBoarded: isOnBoarded),
+            debugShowCheckedModeBanner: false,
+          ),
         );
       },
     );
