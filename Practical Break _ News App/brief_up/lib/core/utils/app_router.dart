@@ -1,3 +1,4 @@
+import 'package:brief_up/features/onboarding/presentation/ui/views/onboarding_view.dart';
 import 'package:brief_up/features/splash/presentation/ui/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,11 +8,15 @@ class AppRouter {
   static final navBar = '/navBar';
   static final detailsview = '/detailsview';
   static final searchView = '/searchview';
-  static GoRouter getRouter(bool isOnBoarded) {
+  static GoRouter getRouter() {
     return GoRouter(
       initialLocation: splash,
       routes: [
-        GoRoute(path: splash, builder: (context, state) => const SplashView()),      
+        GoRoute(path: splash, builder: (context, state) => const SplashView()),
+        GoRoute(
+          path: welcomeView,
+          builder: (context, state) => const OnboardingView(),
+        ),
       ],
     );
   }
