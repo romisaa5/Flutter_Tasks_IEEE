@@ -5,6 +5,8 @@ import 'package:provider_task/features/auth/ui/views/register_view.dart';
 import 'package:provider_task/features/navBar/presentation/manager/navbar_cubit/navbar_cubit.dart';
 import 'package:provider_task/features/navBar/presentation/views/nav_bar.dart';
 import 'package:provider_task/features/onboarding/ui/views/onboarding_view.dart';
+import 'package:provider_task/features/profile/presentation/ui/views/edit_profile.dart';
+import 'package:provider_task/features/store/presentation/ui/views/cart_view.dart';
 
 class AppRouter {
   static final welcomeView = '/welcomeview';
@@ -15,6 +17,8 @@ class AppRouter {
   static final navBar = '/navBar';
   static final detailsview = '/detailsview';
   static final searchView = '/searchview';
+  static final editProfile = '/editProfie';
+  static final cartview = '/cartview';
   static GoRouter getRouter() {
     return GoRouter(
       initialLocation: navBar,
@@ -28,7 +32,8 @@ class AppRouter {
           path: registerView,
           builder: (context, state) => RegisterView(),
         ),
-
+        GoRoute(path: editProfile, builder: (context, state) => EditProfile()),
+        GoRoute(path: cartview, builder: (context, state) => CartView()),
         GoRoute(
           path: navBar,
           builder: (context, state) =>
